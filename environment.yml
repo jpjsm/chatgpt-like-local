@@ -1,0 +1,27 @@
+name: chatgpt-like-local-pi312-cu128
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - rapidsai
+dependencies:
+  - python=3.12
+  - cupy
+  - cudnn
+  - cutensor
+  - nccl
+  - cuvs
+  - pip
+  - pip:
+      - torch-c-dlpack-ext
+      - vllm 
+      - fastapi
+      - uvicorn
+      - huggingface_hub
+variables:
+  HF_HUB_DISABLE_PROGRESS_BARS: "1"
+  HF_HUB_DISABLE_SYMLINKS_WARNING: "1"
+  TF_ENABLE_ONEDNN_OPTS: "0"
+  TRANSFORMERS_VERBOSITY: error
+  HF_DATASETS_OFFLINE: "1"
+  TRANSFORMERS_OFFLINE: "1"

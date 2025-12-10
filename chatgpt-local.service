@@ -1,0 +1,14 @@
+[Unit]
+Description=ChatGpt like local service
+After=network.target
+
+[Service]
+Type=simple
+User=llm
+WorkingDirectory=/home/llm
+ExecStart=/home/llm/run_chatgpt_local_service.sh
+Restart=always
+Environment="PATH=/home/llm/miniforge3/envs/chatgpt-like-local-pi312-cu128/bin:/home/llm/miniforge3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:"
+
+[Install]
+WantedBy=multi-user.target
