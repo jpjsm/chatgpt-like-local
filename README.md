@@ -1,9 +1,25 @@
 # Local *ChatGPT-like* server
 
-Setup a local ChatGPT like server to learn AI without the costs of ChatGPT subscription.
+Setup a local ChatGPT like server to learn AI without the costs of ChatGPT
+subscription.
 
-This is a personal option to learn AI concepts; it does not replace (by any strech of the imagination)
-using ChatGPT, nor is the intention of this post to suggest you can replace ChatGPT so easily.
+This is a personal option to learn AI concepts; it does not replace (by any
+strech of the imagination) using ChatGPT, nor is the intention of this post to
+suggest you can replace ChatGPT so easily.
+
+## Available Hardware
+
+| Device | &nbsp;&nbsp;&nbsp;&nbsp; | Info |
+| ---: | :---: | :--- |
+| Computer || Dell XPS-8950 |
+| CPU || 12th Gen Intel(R) Core(TM) i5-12600K |
+| Memory || 128 GiB |
+| Disk (OS) || Micron 2450 NVMe (256GB) |
+| Disk (data) || KINGSTON SNV3S2000G  (1863GiB ~2TB)|
+| GPU || NVIDIA GeForce RTX 4060 Ti |
+| || - VRAM: 16GiB |
+| || - CUDA: 12.8 |
+| || - Driver: 570.195.03 |
 
 ## Architecture
 
@@ -36,7 +52,8 @@ using ChatGPT, nor is the intention of this post to suggest you can replace Chat
 ## Pre-requisites
 
 - Conda-Forge installed for all users
-- GPU environment established for all users and frozen (no user should be able to accidentally disrupt the NVIDIA drivers and compiler (nvcc) version).
+- GPU environment established for all users and frozen (no user should be able
+to accidentally disrupt the NVIDIA drivers and compiler (nvcc) version).
 
 ## Setup
 
@@ -155,3 +172,10 @@ using ChatGPT, nor is the intention of this post to suggest you can replace Chat
     - "Explain the differences between inorganic chemestry and organic chemestry, then summarize the explanation in Spanish."
   - Use the following command to test the service, replace *<prompt>* with the corresponding prompt:
     - `curl http://localhost:12347/v1/completions   -H "Content-Type: application/json"   -d '{ "model": "mistral-7b-local", "prompt": "<prompt>", "max_tokens": 512 }'`
+
+## Local ChatGPT-like service GPU usage
+
+### Model Weights: **Mistral-7B-Instruct-v0.3**
+
+- VLLM Engine Core: **VRAM** = 15,884 GiB
+- available: **VRAM** = 478 MiB
